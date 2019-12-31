@@ -33,9 +33,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li class="nav-item d-none d-sm-inline-block">
           <a href="index3.html" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
       </ul>
 
       <!-- SEARCH FORM -->
@@ -196,11 +193,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+              <a href="/admin/users" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
                 <p>
-                  Simple Link
-                  <span class="right badge badge-danger">New</span>
+                  Usuarios
                 </p>
               </a>
             </li>
