@@ -1,29 +1,32 @@
 <?php
 
 namespace Hcode;
+
 use Rain\Tpl;
 use \PHPMailer;
 
-class Mailer {
-  const USERNAME ="ecommerce.projeto.email@gmail.com";
-  const PASSWORD ="projetophp7";
+class Mailer
+{
+  const USERNAME = "ecommerce.projeto.email@gmail.com";
+  const PASSWORD = "projetophp7";
   const NAME_FROM = "Ecommerce";
   private $mail;
-  public function __construct($toAddress, $toName, $subject, $tplName, $data = array()){
-    
+  public function __construct($toAddress, $toName, $subject, $tplName, $data = array())
+  {
+
     // config
     $config = array(
-      "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/email/",
-      "cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views/cache/",
+      "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"] . "/views/email/",
+      "cache_dir"     => $_SERVER["DOCUMENT_ROOT"] . "/views/cache/",
       "debug"         => false // set to false to improve the speed
-      );
+    );
 
-    Tpl::configure( $config );
+    Tpl::configure($config);
 
     // create the Tpl object
     $tpl = new Tpl;
 
-    foreach($data as $key => $value){
+    foreach ($data as $key => $value) {
       $tpl->assign($key, $value);
     }
     $html = $tpl->draw($tplName, true);
@@ -42,11 +45,9 @@ class Mailer {
     $this->mail->Subject = $subject;
     $this->mail->msgHTML($html);
     $this->mail->AltBody = "This is a plain-text message body";
-
-
   }
-
-  public function send(){
+  public function send()
+  {
     return $this->mail->send();
   }
 }
